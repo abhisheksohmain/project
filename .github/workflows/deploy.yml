@@ -27,14 +27,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      - name: Install dependencies
-        run: npm install
+      - name: Clean install dependencies
+        run: |
+          rm -rf node_modules
+          npm ci
+          chmod +x node_modules/.bin/vite
 
       - name: Build website
         run: npm run build
@@ -42,7 +45,7 @@ jobs:
       - name: Verify build output
         run: |
           test -f dist/index.html
-          ls -la dist
+          test -f dist/assets/index-Ce70tPlg.js || ls -la dist/assets
           grep -Eo 'src="[^"]+\.js"|href="[^"]+\.css"' dist/index.html
 
       - name: Support React Router refresh
