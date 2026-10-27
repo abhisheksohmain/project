@@ -1,0 +1,18 @@
+:root{--navy:#172A45;--navy-d:#0A192F;--navy-l:#1E3556;--silver:#94A3B8;--silver-hi:#E2E8F0;--silver-l:#F8FAFC;--blue:#38BDF8;--blue-d:#0EA5E9;--white:#fff;--ink:#0A192F;--muted:#5b6b86;--grad:linear-gradient(135deg,#0A192F,#172A45);--metal:linear-gradient(180deg,#E2E8F0 0%,#94A3B8 55%,#CBD5E1 100%);--sh:0 18px 45px rgba(10,25,47,.18)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:#fff;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;line-height:1.2}a{text-decoration:none;color:inherit}ul{list-style:none}img,video{max-width:100%;display:block}
+.container{width:min(1200px,92%);margin:auto}.section{padding:96px 0}.section.alt{background:var(--silver-l)}.section.dark{background:var(--grad);color:#fff}
+.eyebrow{display:inline-block;color:var(--blue);font:700 .78rem 'Montserrat';letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px}
+.title{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:16px}.lead{color:var(--muted);max-width:720px}.dark .lead{color:var(--silver)}
+.center{text-align:center}.center .lead{margin:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:50px;font:600 .92rem 'Montserrat';border:2px solid transparent;cursor:pointer;transition:.35s}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--blue-d));color:#0A192F;box-shadow:0 8px 24px rgba(56, 189, 248,.4)}.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(56, 189, 248,.55)}
+.btn-ghost{border-color:var(--silver);color:#fff}.btn-ghost:hover{background:#fff;color:var(--navy);transform:translateY(-3px)}
+.btn-dark{background:var(--navy);color:#fff}.btn-dark:hover{background:var(--blue);transform:translateY(-3px)}
+.grid{display:grid;gap:28px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.card{background:#fff;border-radius:18px;padding:32px;box-shadow:var(--sh);transition:.4s;border:1px solid #E2E8F0}.card:hover{transform:translateY(-8px);border-color:var(--blue)}
+.ticks li{padding:6px 0 6px 28px;position:relative}.ticks li:before{content:'✓';position:absolute;left:0;color:var(--blue);font-weight:700}
+@media(max-width:960px){.g3,.g4,.g2,.split{grid-template-columns:1fr}.section{padding:64px 0}}
+@media(min-width:600px) and (max-width:960px){.g4{grid-template-columns:repeat(2,1fr)}}

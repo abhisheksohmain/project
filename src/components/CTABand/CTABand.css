@@ -1,0 +1,161 @@
+
+/* =========================================
+   CRAMER GROUP — CTA BAND
+   Scoped styles: CTA section only
+   Theme: Navy / Indigo / Cyan / Silver
+========================================= */
+
+section.cta {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  padding: 100px 0;
+  overflow: hidden;
+  color: #FFFFFF;
+  text-align: center;
+  background: #0A192F;
+}
+
+/* Full-section background image — NO OVERLAY */
+section.cta .cm {
+  position: absolute !important;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  pointer-events: none;
+}
+
+/* Image sizing inside the Media component */
+section.cta .cm img,
+section.cta .cm picture,
+section.cta .cm video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+}
+
+/* Remove the old full-section overlay completely */
+section.cta > .co {
+  display: none !important;
+}
+
+/* Content container */
+section.cta .cc {
+  position: relative;
+  z-index: 1;
+  width: min(900px, calc(100% - 40px));
+  margin-inline: auto;
+  padding: 0;
+}
+
+/* Soft background ONLY behind the content */
+section.cta .cc::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -22px -26px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 12px;
+  background: rgba(10, 25, 47, 0.42);
+  pointer-events: none;
+}
+
+/* Heading */
+section.cta .cc h2 {
+  position: relative;
+  margin: 0 0 14px;
+  color: #F8FAFC;
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  text-shadow: 0 2px 8px rgba(10, 25, 47, 0.4);
+}
+
+/* Description */
+section.cta .cc p {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto 28px;
+  color: #E2E8F0;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-shadow: 0 2px 7px rgba(10, 25, 47, 0.45);
+}
+
+/* Button — preserve existing btn-primary theme */
+section.cta .cc .btn {
+  position: relative;
+  z-index: 1;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+section.cta .cc .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(10, 25, 47, 0.24);
+}
+
+section.cta .cc .btn:focus-visible {
+  outline: 2px solid #E2E8F0;
+  outline-offset: 4px;
+}
+
+/* Tablet */
+@media (max-width: 960px) {
+  section.cta {
+    padding: 80px 0;
+  }
+
+  section.cta .cc {
+    width: calc(100% - 40px);
+  }
+
+  section.cta .cc::before {
+    inset: -18px -20px;
+    background: rgba(10, 25, 47, 0.46);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  section.cta {
+    padding: 65px 0;
+  }
+
+  section.cta .cc {
+    width: calc(100% - 40px);
+  }
+
+  section.cta .cc::before {
+    inset: -16px -12px;
+    border-radius: 9px;
+    background: rgba(10, 25, 47, 0.5);
+  }
+
+  section.cta .cc h2 {
+    font-size: clamp(1.7rem, 7vw, 2.2rem);
+    line-height: 1.22;
+  }
+
+  section.cta .cc p {
+    margin-bottom: 23px;
+    font-size: 0.93rem;
+    line-height: 1.7;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  section.cta .cc .btn {
+    transition: none !important;
+  }
+}

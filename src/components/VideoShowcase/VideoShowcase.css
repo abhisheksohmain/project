@@ -1,0 +1,335 @@
+
+/* =========================================
+   CRAMER GROUP — NATURAL BACKGROUND VIDEO
+   Original Navy / Indigo / Silver / Cyan
+   No visible overlay on video
+========================================= */
+
+.video-showcase {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 90px 0;
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  background: #0A192F;
+  color: #F8FAFC;
+}
+
+/* Full-section background video */
+.video-showcase .video-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+  background: #0A192F;
+}
+
+/* Completely remove video overlay */
+.video-showcase .video-background-overlay {
+  display: none !important;
+  background: transparent !important;
+}
+
+/* Content layout */
+.video-showcase .video-showcase-grid {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+
+/* Transparent content — no overlay or background box */
+.video-showcase .video-showcase-content {
+  position: relative;
+  isolation: auto;
+  width: calc(100% - 40px);
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  animation: vsContentReveal 0.85s ease-out both;
+}
+
+/* Remove content overlay */
+.video-showcase .video-showcase-content::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Reusable overlay classes for OTHER sections */
+.section-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(10, 25, 47, 0.45);
+  pointer-events: none;
+}
+
+.section-overlay--dark {
+  background: rgba(10, 25, 47, 0.60);
+}
+
+.section-overlay--light {
+  background: rgba(10, 25, 47, 0.25);
+}
+
+/* Eyebrow */
+.video-showcase .video-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #38BDF8;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.video-showcase .eyebrow-dot {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.14);
+  animation: vsDotPulse 2.2s ease-in-out infinite;
+}
+
+/* Main heading */
+.video-showcase .video-heading {
+  max-width: 850px;
+  margin: 0 auto 20px;
+  color: #F8FAFC;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  font-weight: 850;
+  text-align: center;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.42);
+}
+
+.video-showcase .video-heading span {
+  display: inline;
+  margin-left: 9px;
+  color: #38BDF8;
+}
+
+/* Description */
+.video-showcase .video-description {
+  max-width: 760px;
+  margin: 0 auto 25px;
+  color: #E2E8F0;
+  font-size: 0.98rem;
+  line-height: 1.85;
+  text-align: center;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Horizontal feature list */
+.video-showcase .video-feature-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px 28px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.video-showcase .video-feature-list li {
+  position: relative;
+  padding-left: 27px;
+  color: #F8FAFC;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: left;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.video-showcase .video-feature-list li::before {
+  content: "✓";
+  position: absolute;
+  top: 1px;
+  left: 0;
+  display: grid;
+  width: 19px;
+  height: 19px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.video-showcase .video-feature-list li:hover {
+  color: #38BDF8;
+}
+
+/* Bottom note */
+.video-showcase .video-bottom-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+  color: #E2E8F0;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+}
+
+.video-showcase .video-note-line {
+  width: 36px;
+  height: 2px;
+  background: #38BDF8;
+}
+
+/* Hide old visual-frame elements */
+.video-showcase .video-showcase-visual,
+.video-showcase .video-index,
+.video-showcase .video-frame,
+.video-showcase .video-frame-footer {
+  display: none;
+}
+
+/* Reveal animation */
+@keyframes vsContentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes vsDotPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.10);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.025);
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .video-showcase {
+    min-height: 520px;
+    padding: 75px 0;
+  }
+
+  .video-showcase .video-showcase-grid {
+    gap: 25px;
+  }
+
+  .video-showcase .video-showcase-content {
+    max-width: 760px;
+  }
+
+  .video-showcase .video-feature-list {
+    gap: 13px 22px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .video-showcase {
+    min-height: 550px;
+    padding: 60px 0;
+  }
+
+  .video-showcase .video-background {
+    object-position: center;
+  }
+
+  .video-showcase .video-showcase-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .video-showcase .video-showcase-content {
+    width: calc(100% - 28px);
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .video-showcase .video-eyebrow {
+    margin-bottom: 15px;
+    font-size: 0.68rem;
+  }
+
+  .video-showcase .video-heading {
+    font-size: clamp(1.85rem, 8vw, 2.5rem);
+    line-height: 1.16;
+    margin-bottom: 16px;
+  }
+
+  .video-showcase .video-heading span {
+    display: block;
+    margin-left: 0;
+    margin-top: 4px;
+  }
+
+  .video-showcase .video-description {
+    margin-bottom: 20px;
+    font-size: 0.91rem;
+    line-height: 1.75;
+  }
+
+  .video-showcase .video-feature-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .video-showcase .video-feature-list li {
+    font-size: 0.84rem;
+  }
+
+  .video-showcase .video-bottom-note {
+    margin-top: 24px;
+    font-size: 0.58rem;
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .video-showcase .video-showcase-content,
+  .video-showcase .eyebrow-dot {
+    animation: none !important;
+  }
+}

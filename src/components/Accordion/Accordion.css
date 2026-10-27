@@ -1,0 +1,4 @@
+.ai{background:#fff;border:1px solid #dfe5f0;border-radius:14px;margin-bottom:14px;overflow:hidden;transition:.3s}.ai:hover,.ai.on{border-color:var(--blue);box-shadow:var(--sh)}
+.ai button{width:100%;display:flex;align-items:center;gap:16px;padding:20px 24px;background:none;border:0;cursor:pointer;text-align:left;font:700 1.02rem Montserrat;color:var(--navy)}
+.ai button span{color:var(--blue)}.ai button i{margin-left:auto;font-style:normal;font-size:1.6rem;transition:.4s}.ai.on button i{transform:rotate(135deg)}
+.ab{max-height:0;overflow:hidden;transition:.5s}.ai.on .ab{max-height:200px}.ab p{padding:0 24px 22px 62px;color:var(--muted)}

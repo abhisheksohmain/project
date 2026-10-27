@@ -1,0 +1,1225 @@
+.collage{position:relative;height:480px}.c1{position:absolute!important;width:75%;height:380px;left:0;top:0}.c2{position:absolute!important;width:55%;height:260px;right:0;bottom:0;border:8px solid #fff;box-shadow:var(--sh)}
+.mg{margin-top:46px}.mc h3{margin:14px 0 8px;font-size:1.15rem}.mc p{color:var(--muted);font-size:.95rem}.ic{width:60px;height:60px;border-radius:16px;background:var(--grad);display:grid;place-items:center;font-size:1.6rem;transition:.4s}.mc:hover .ic{transform:rotate(-8deg) scale(1.1)}
+@media(max-width:960px){.collage{height:360px}.c1{height:260px}.c2{height:180px}}
+
+
+
+
+
+/* =========================================
+   WHO WE ARE — ANIMATED COLLAGE
+   Existing Cramer Group theme preserved
+========================================= */
+
+.who-section {
+  overflow: hidden;
+}
+
+.who-section .split {
+  align-items: center;
+}
+
+.collage {
+  position: relative;
+  height: 480px;
+  isolation: isolate;
+}
+
+/* Keep original image dimensions */
+
+.c1 {
+  position: absolute !important;
+  width: 75%;
+  height: 380px;
+  left: 0;
+  top: 0;
+}
+
+.c2 {
+  position: absolute !important;
+  width: 55%;
+  height: 260px;
+  right: 0;
+  bottom: 0;
+  border: 8px solid #fff;
+  box-shadow: var(--sh);
+}
+
+/* Image containers */
+
+.collage-image {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--light, #f5f1e8);
+}
+
+.image-primary {
+  z-index: 1;
+  width: 75%;
+  height: 380px;
+  left: 0;
+  top: 0;
+  animation: whoImageEntrance 0.9s ease-out both;
+}
+
+.image-primary .c1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(.2, .7, .2, 1);
+}
+
+.image-secondary {
+  z-index: 3;
+  width: 55%;
+  height: 260px;
+  right: 0;
+  bottom: 0;
+  overflow: visible;
+  border: 8px solid #fff;
+  box-shadow: var(--sh);
+  animation: whoImageEntrance 1s 0.18s ease-out both;
+}
+
+.image-secondary .c2 {
+  position: relative !important;
+  inset: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: none;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(.2, .7, .2, 1);
+}
+
+/* Image hover movement */
+
+.collage:hover .image-primary .c1 {
+  transform: scale(1.045);
+}
+
+.collage:hover .image-secondary .c2 {
+  transform: scale(1.055);
+}
+
+/* Subtle animated frame corners */
+
+.image-corner {
+  position: absolute;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.corner-tl {
+  top: 12px;
+  left: 12px;
+  border-top: 2px solid var(--blue, #2563eb);
+  border-left: 2px solid var(--blue, #2563eb);
+}
+
+.corner-br {
+  right: 12px;
+  bottom: 12px;
+  border-right: 2px solid var(--blue, #2563eb);
+  border-bottom: 2px solid var(--blue, #2563eb);
+}
+
+.collage:hover .image-corner {
+  width: 64px;
+  height: 64px;
+}
+
+/* Decorative orbit shapes */
+
+.collage-orbit {
+  position: absolute;
+  z-index: -1;
+  border: 1px solid rgba(7, 27, 74, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-one {
+  width: 150px;
+  height: 150px;
+  top: -30px;
+  right: 8%;
+  animation: whoOrbit 18s linear infinite;
+}
+
+.orbit-two {
+  width: 90px;
+  height: 90px;
+  left: -24px;
+  bottom: 35px;
+  border-style: dashed;
+  animation: whoOrbit 24s linear infinite reverse;
+}
+
+.orbit-one::after,
+.orbit-two::after {
+  content: "";
+  position: absolute;
+  top: 12%;
+  right: 12%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--blue, #2563eb);
+}
+
+/* Small floating information label */
+
+.collage-marker {
+  position: absolute;
+  z-index: 4;
+  left: 18px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--navy, #071b4a);
+  box-shadow: var(--sh);
+  font-size: 0.78rem;
+  font-weight: 700;
+  animation: whoFloat 4s ease-in-out infinite;
+}
+
+.marker-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--blue, #2563eb);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* Content animation */
+
+.who-content {
+  animation: whoContentEntrance 0.8s ease-out both;
+}
+
+.who-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow-line {
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  background: currentColor;
+  transform-origin: left;
+  animation: whoLineGrow 0.8s 0.2s ease-out both;
+}
+
+.who-title {
+  text-wrap: balance;
+}
+
+.who-title-accent {
+  position: relative;
+}
+
+.who-lead {
+  max-width: 620px;
+}
+
+.who-ticks li {
+  transition: transform 0.3s ease;
+}
+
+.who-ticks li:hover {
+  transform: translateX(5px);
+}
+
+/* Wave button — original btn-dark colors retained */
+
+.who-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  overflow: hidden;
+  isolation: isolate;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.who-button > span:not(.button-wave) {
+  position: relative;
+  z-index: 2;
+}
+
+.who-button .button-wave {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 100%;
+  width: 220%;
+  aspect-ratio: 1;
+  border-radius: 40%;
+  background: var(--blue, #2563eb);
+  transform: translate(-50%, 0) rotate(0deg);
+  transition: top 0.5s ease;
+  pointer-events: none;
+}
+
+.who-button:hover .button-wave,
+.who-button:focus-visible .button-wave {
+  top: -75%;
+  animation: whoButtonWave 4s linear infinite;
+}
+
+.who-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh);
+}
+
+.who-button-arrow {
+  transition: transform 0.3s ease;
+}
+
+.who-button:hover .who-button-arrow {
+  transform: translateX(5px);
+}
+
+.who-button:focus-visible {
+  outline: 2px solid var(--navy, #071b4a);
+  outline-offset: 4px;
+}
+
+/* Keyframes */
+
+@keyframes whoImageEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes whoContentEntrance {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes whoFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes whoOrbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes whoLineGrow {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes whoButtonWave {
+  from {
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, 0) rotate(360deg);
+  }
+}
+
+/* Responsive — preserve original image proportions */
+
+@media (max-width: 960px) {
+  .collage {
+    height: 360px;
+  }
+
+  .image-primary {
+    height: 260px;
+  }
+
+  .image-secondary {
+    height: 180px;
+  }
+
+  .collage-marker {
+    bottom: 18px;
+    padding: 10px 12px;
+    font-size: 0.72rem;
+  }
+
+  .orbit-one {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 600px) {
+  .collage-marker {
+    left: 10px;
+    bottom: 14px;
+  }
+
+  .image-corner {
+    width: 32px;
+    height: 32px;
+  }
+
+  .collage:hover .image-corner {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .image-primary,
+  .image-secondary,
+  .who-content,
+  .collage-marker,
+  .collage-orbit,
+  .eyebrow-line {
+    animation: none !important;
+  }
+
+  .who-button .button-wave {
+    animation: none !important;
+  }
+
+  .collage-image img,
+  .who-ticks li,
+  .who-button,
+  .who-button-arrow {
+    transition: none !important;
+  }
+}
+
+
+/* ==========================================
+   CRAMER GROUP — CAPABILITIES SECTION
+   Official Palette: Navy / Indigo / Cyan
+========================================== */
+
+.home-capabilities {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #F8FAFC;
+}
+
+/* Full-section engineering background image */
+.home-capabilities .home-cap-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background-image: url("https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=2000&q=85");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Navy + light sheet overlay — keep image visible */
+.home-capabilities .home-cap-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    110deg,
+    rgba(10, 25, 47, 0.28) 0%,
+    rgba(248, 250, 252, 0.48) 48%,
+    rgba(248, 250, 252, 0.66) 100%
+  );
+}
+
+/* Content layer */
+.home-capabilities .home-cap-container {
+  position: relative;
+  z-index: 1;
+}
+
+.home-capabilities .home-cap-heading {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.home-capabilities .home-cap-heading .lead {
+  max-width: 650px;
+  margin: 16px auto 0;
+  color: #334155;
+  line-height: 1.75;
+}
+
+.home-capabilities .home-mep-grid > * {
+  min-width: 0;
+}
+
+/* Service cards */
+.home-capabilities .home-mep-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: 100%;
+  padding: 26px;
+
+  background: rgba(248, 250, 252, 0.94);
+  border: 1px solid rgba(23, 42, 69, 0.18);
+  border-radius: 16px;
+
+  box-shadow: 0 8px 24px rgba(10, 25, 47, 0.10);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Cyan top accent */
+.home-capabilities .home-mep-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 3px;
+  background: #38BDF8;
+  transition: width 0.3s ease;
+}
+
+.home-capabilities .home-mep-card:hover {
+  transform: translateY(-5px);
+  border-color: #38BDF8;
+  box-shadow: 0 16px 34px rgba(10, 25, 47, 0.16);
+}
+
+.home-capabilities .home-mep-card:hover::before {
+  width: 100%;
+}
+
+.home-capabilities .home-mep-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-capabilities .home-mep-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 19px;
+}
+
+/* Indigo icon surface */
+.home-capabilities .home-mep-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 56px;
+  height: 56px;
+
+  color: #FFFFFF;
+  background: #172A45;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 14px;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.home-capabilities .home-mep-card:hover .home-mep-icon {
+  color: #0A192F;
+  background: #38BDF8;
+  transform: translateY(-2px);
+}
+
+.home-capabilities .home-mep-number {
+  color: #172A45;
+  opacity: 0.65;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.home-capabilities .home-mep-card h3 {
+  margin: 0 0 12px;
+  color: #0A192F;
+  font-size: 1.12rem;
+  line-height: 1.45;
+  font-weight: 750;
+}
+
+.home-capabilities .home-mep-underline {
+  display: block;
+  width: 34px;
+  height: 3px;
+  margin-bottom: 14px;
+
+  background: #38BDF8;
+  border-radius: 3px;
+
+  transition: width 0.3s ease;
+}
+
+.home-capabilities .home-mep-card:hover .home-mep-underline {
+  width: 54px;
+}
+
+.home-capabilities .home-mep-card p {
+  margin: 0;
+  color: #334155;
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+/* Subtle metallic circular detail */
+.home-capabilities .home-mep-decoration {
+  position: absolute;
+  right: -42px;
+  bottom: -48px;
+  z-index: 0;
+
+  width: 110px;
+  height: 110px;
+
+  border: 1px solid rgba(148, 163, 184, 0.30);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.home-capabilities .home-mep-decoration::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+
+  border: 1px solid rgba(56, 189, 248, 0.24);
+  border-radius: 50%;
+}
+
+/* Tablet */
+@media (max-width: 960px) {
+  .home-capabilities .home-mep-card {
+    padding: 22px;
+  }
+
+  .home-capabilities .home-cap-bg {
+    background-position: 55% center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .home-capabilities .home-cap-bg {
+    background-position: center;
+  }
+
+  .home-capabilities .home-cap-bg::after {
+    background: rgba(248, 250, 252, 0.76);
+  }
+
+  .home-capabilities .home-mep-card {
+    padding: 21px;
+    background: rgba(248, 250, 252, 0.97);
+  }
+
+  .home-capabilities .home-mep-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .home-capabilities .home-mep-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .home-capabilities .home-mep-card,
+  .home-capabilities .home-mep-card::before,
+  .home-capabilities .home-mep-icon,
+  .home-capabilities .home-mep-underline {
+    transition: none !important;
+  }
+}
+
+
+/* Capabilities heading — improve text visibility */
+
+.home-capabilities .home-cap-heading .eyebrow {
+  display: inline-block;
+  color: #172A45 !important;
+  font-weight: 800;
+  opacity: 1;
+  text-shadow: none;
+}
+
+.home-capabilities .home-cap-heading .title {
+  color: #0A192F !important;
+  opacity: 1;
+  font-weight: 800;
+  text-shadow: none;
+}
+
+.home-capabilities .home-cap-heading .lead {
+  color: #172A45 !important;
+  opacity: 1;
+  font-weight: 500;
+  line-height: 1.75;
+  text-shadow: none;
+}
+
+/* Keep heading area clear over the background image */
+.home-capabilities .home-cap-heading {
+  position: relative;
+  z-index: 2;
+  padding: 8px 12px;
+}
+
+/* Make the background image less distracting behind text */
+.home-capabilities .home-cap-bg::after {
+  background: linear-gradient(
+    110deg,
+    rgba(248, 250, 252, 0.78) 0%,
+    rgba(248, 250, 252, 0.70) 55%,
+    rgba(248, 250, 252, 0.78) 100%
+  );
+}
+
+/* Mobile readability */
+@media (max-width: 600px) {
+  .home-capabilities .home-cap-heading .eyebrow {
+    font-size: 0.82rem;
+  }
+
+  .home-capabilities .home-cap-heading .title {
+    color: #0A192F !important;
+  }
+
+  .home-capabilities .home-cap-heading .lead {
+    color: #172A45 !important;
+    font-size: 0.94rem;
+  }
+}
+
+
+
+/* ==========================================
+   CRAMER GROUP — EMERGENCY SUPPORT SECTION
+   Theme: Navy / Indigo / Silver / Cyan
+   Scoped ONLY to Emergency Support
+========================================== */
+
+.emergency-support {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #0A192F;
+  color: #E2E8F0;
+}
+
+.emergency-support .emergency-support-grid {
+  align-items: center;
+  gap: clamp(30px, 5vw, 68px);
+}
+
+/* Left content */
+
+.emergency-support .emergency-content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+}
+
+.emergency-support .emergency-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  color: #38BDF8;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.emergency-support .emergency-status-dot {
+  position: relative;
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.12);
+  animation: emergencyPulse 2s ease-in-out infinite;
+}
+
+.emergency-support .emergency-title {
+  max-width: 540px;
+  margin: 0 0 20px;
+  color: #F8FAFC;
+  font-size: clamp(2rem, 3.6vw, 3.15rem);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.emergency-support .emergency-description {
+  max-width: 520px;
+  margin: 0 0 28px;
+  color: #CBD5E1;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+/* Call-to-action button */
+
+.emergency-support .emergency-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 50px;
+  padding: 14px 22px;
+  border: 1px solid #38BDF8;
+  border-radius: 8px;
+  background: #38BDF8;
+  color: #0A192F;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.16);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.emergency-support .emergency-button:hover {
+  transform: translateY(-3px);
+  background: #E2E8F0;
+  border-color: #E2E8F0;
+  color: #0A192F;
+  box-shadow: 0 14px 30px rgba(56, 189, 248, 0.2);
+}
+
+.emergency-support .emergency-button:focus-visible {
+  outline: 2px solid #E2E8F0;
+  outline-offset: 5px;
+}
+
+.emergency-support .emergency-button > span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.emergency-support .emergency-button:hover > span {
+  transform: translateX(5px);
+}
+
+/* Right-side image card */
+
+.emergency-support .emergency-image-card {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  height: clamp(320px, 38vw, 470px);
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 18px;
+  background: #172A45;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
+  transform: translateZ(0);
+}
+
+/* Original image from your Media component */
+
+.emergency-support .emergency-main-image {
+  position: absolute !important;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.emergency-support .emergency-main-image img,
+.emergency-support .emergency-main-image picture,
+.emergency-support .emergency-main-image video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover image — technical engineering image */
+
+.emergency-support .emergency-hover-image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  clip-path: inset(0 0 0 100%);
+  transition:
+    clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease,
+    visibility 0.45s ease;
+}
+
+.emergency-support .emergency-hover-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+  filter: saturate(0.85) contrast(1.04);
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+/* Reveal technical image when hovering the card */
+
+.emergency-support .emergency-image-card:hover .emergency-hover-image,
+.emergency-support .emergency-image-card:focus-within .emergency-hover-image {
+  opacity: 1;
+  visibility: visible;
+  clip-path: inset(0 0 0 0);
+}
+
+.emergency-support .emergency-image-card:hover .emergency-hover-image img,
+.emergency-support .emergency-image-card:focus-within .emergency-hover-image img {
+  transform: scale(1);
+  filter: saturate(1) contrast(1.04);
+}
+
+/* Dark cinematic overlay */
+
+.emergency-support .emergency-image-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 25, 47, 0.04) 0%,
+    rgba(10, 25, 47, 0.12) 38%,
+    rgba(10, 25, 47, 0.86) 100%
+  );
+  transition: background 0.4s ease;
+}
+
+.emergency-support .emergency-image-card:hover .emergency-image-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 25, 47, 0.08) 0%,
+    rgba(10, 25, 47, 0.18) 35%,
+    rgba(10, 25, 47, 0.9) 100%
+  );
+}
+
+/* Top technical label */
+
+.emergency-support .emergency-image-label {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100% - 40px);
+  padding: 11px 14px;
+  border: 1px solid rgba(226, 232, 240, 0.24);
+  border-radius: 7px;
+  background: rgba(10, 25, 47, 0.72);
+  color: #E2E8F0;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.emergency-support .emergency-label-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: #38BDF8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+}
+
+.emergency-support .emergency-image-card:hover .emergency-image-label {
+  border-color: rgba(56, 189, 248, 0.65);
+  background: rgba(10, 25, 47, 0.86);
+}
+
+/* Bottom image caption */
+
+.emergency-support .emergency-image-caption {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  left: 22px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: #F8FAFC;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  transition: transform 0.35s ease;
+}
+
+.emergency-support .emergency-caption-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border: 1px solid rgba(226, 232, 240, 0.35);
+  border-radius: 50%;
+  color: #38BDF8;
+  font-size: 1.15rem;
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.emergency-support .emergency-image-card:hover .emergency-image-caption {
+  transform: translateY(-3px);
+}
+
+.emergency-support .emergency-image-card:hover .emergency-caption-arrow {
+  transform: rotate(45deg);
+  border-color: #38BDF8;
+  background: #38BDF8;
+  color: #0A192F;
+}
+
+/* Cyan engineering corner details */
+
+.emergency-support .emergency-corner {
+  position: absolute;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  pointer-events: none;
+  transition:
+    width 0.35s ease,
+    height 0.35s ease;
+}
+
+.emergency-support .emergency-corner-tl {
+  top: 10px;
+  right: 10px;
+  border-top: 2px solid #38BDF8;
+  border-right: 2px solid #38BDF8;
+}
+
+.emergency-support .emergency-corner-br {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 2px solid #38BDF8;
+  border-left: 2px solid #38BDF8;
+}
+
+.emergency-support .emergency-image-card:hover .emergency-corner {
+  width: 48px;
+  height: 48px;
+}
+
+/* Entrance animation */
+
+.emergency-support .emergency-content {
+  animation: emergencyContentIn 0.75s ease-out both;
+}
+
+.emergency-support .emergency-image-card {
+  animation: emergencyImageIn 0.9s 0.12s ease-out both;
+}
+
+@keyframes emergencyPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.02);
+  }
+}
+
+@keyframes emergencyContentIn {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes emergencyImageIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 960px) {
+  .emergency-support .emergency-support-grid {
+    gap: 34px;
+  }
+
+  .emergency-support .emergency-image-card {
+    height: 360px;
+  }
+
+  .emergency-support .emergency-title {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .emergency-support .emergency-support-grid {
+    gap: 28px;
+  }
+
+  .emergency-support .emergency-content {
+    max-width: none;
+  }
+
+  .emergency-support .emergency-title {
+    font-size: clamp(1.8rem, 7vw, 2.25rem);
+    line-height: 1.2;
+  }
+
+  .emergency-support .emergency-description {
+    font-size: 0.94rem;
+    line-height: 1.75;
+  }
+
+  .emergency-support .emergency-image-card {
+    height: 300px;
+    border-radius: 13px;
+  }
+
+  .emergency-support .emergency-image-label {
+    top: 14px;
+    left: 14px;
+    padding: 9px 11px;
+    font-size: 0.62rem;
+  }
+
+  .emergency-support .emergency-image-caption {
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    font-size: 0.68rem;
+  }
+
+  .emergency-support .emergency-caption-arrow {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  /* Keep the technical image visible on touch screens */
+  .emergency-support .emergency-hover-image {
+    opacity: 1;
+    visibility: visible;
+    clip-path: inset(0 0 0 0);
+  }
+
+  .emergency-support .emergency-hover-image img {
+    transform: scale(1);
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .emergency-support .emergency-status-dot,
+  .emergency-support .emergency-content,
+  .emergency-support .emergency-image-card {
+    animation: none !important;
+  }
+
+  .emergency-support .emergency-button,
+  .emergency-support .emergency-button > span,
+  .emergency-support .emergency-hover-image,
+  .emergency-support .emergency-hover-image img,
+  .emergency-support .emergency-image-overlay,
+  .emergency-support .emergency-image-label,
+  .emergency-support .emergency-image-caption,
+  .emergency-support .emergency-caption-arrow,
+  .emergency-support .emergency-corner {
+    transition: none !important;
+  }
+}

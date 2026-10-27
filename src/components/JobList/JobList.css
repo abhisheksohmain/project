@@ -1,0 +1,2 @@
+.job{display:flex;justify-content:space-between;align-items:center;gap:16px;background:#fff;padding:22px 28px;border-radius:14px;border-left:5px solid var(--blue);margin-bottom:16px;box-shadow:0 6px 20px rgba(10, 25, 47,.08);transition:.35s}.job:hover{transform:translateX(10px);box-shadow:var(--sh)}.job span{color:var(--muted);font-size:.9rem}
+@media(max-width:600px){.job{flex-direction:column;align-items:flex-start}}

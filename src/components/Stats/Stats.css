@@ -1,0 +1,3 @@
+.stats{background:var(--grad);color:#fff;padding:70px 0;position:relative;overflow:hidden}.stats:before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(rgba(56, 189, 248,.25),transparent 70%);right:-120px;top:-200px}
+.st{text-align:center;padding:10px;border-right:1px solid #2A3F5F}.st:last-child{border:0}.st h3{font-size:3rem;background:linear-gradient(#fff,var(--silver-hi) 40%,var(--silver));-webkit-background-clip:text;background-clip:text;color:transparent}.st p{color:var(--silver);letter-spacing:.1em;text-transform:uppercase;font-size:.8rem}
+@media(max-width:960px){.st{border:0}}

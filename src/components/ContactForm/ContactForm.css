@@ -1,0 +1,3 @@
+.cf{background:#fff;padding:40px;border-radius:20px;box-shadow:var(--sh)}.cf h3{margin-bottom:22px;font-size:1.5rem}.r{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cf label{display:block;font:600 .82rem Montserrat;color:var(--navy);margin-bottom:18px}.cf input,.cf select,.cf textarea{width:100%;margin-top:7px;padding:13px 15px;border:1.5px solid #d5dce9;border-radius:10px;font:inherit;transition:.3s;background:#fafbfe}
+.cf input:focus,.cf select:focus,.cf textarea:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px rgba(56, 189, 248,.15)}.cf.ok{text-align:center;padding:70px 30px}@media(max-width:600px){.r{grid-template-columns:1fr}}
