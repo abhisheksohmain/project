@@ -1,11 +1,35 @@
 
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import './VideoShowcase.css'
 
 export default function VideoShowcase() {
   const videoRef = useRef(null)
 
+  // GitHub Pages repository: project
+  // Video: public/videos/cramer-showreel.mp4
   const SHOWREEL = `${import.meta.env.BASE_URL}videos/cramer-showreel.mp4`
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const playVideo = () => {
+      video.play().catch(() => {
+        // Some browsers restrict autoplay.
+        // The muted video can still be played when supported.
+      })
+    }
+
+    if (video.readyState >= 2) {
+      playVideo()
+    } else {
+      video.addEventListener('canplay', playVideo, { once: true })
+    }
+
+    return () => {
+      video.removeEventListener('canplay', playVideo)
+    }
+  }, [])
 
   return (
     <section className="section video-showcase video-showcase-bg">

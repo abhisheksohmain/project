@@ -1,46 +1,47 @@
 
 /* =========================================
-   CRAMER GROUP — NATURAL BACKGROUND VIDEO
-   Original Navy / Indigo / Silver / Cyan
-   No visible overlay on video
+   CRAMER GROUP — VIDEO SHOWCASE
+   Natural background video
+   Navy / Indigo / Silver / Cyan
+   GitHub Pages compatible
 ========================================= */
 
 .video-showcase {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 90px 0;
   min-height: 570px;
+  padding: 90px 0;
   display: flex;
   align-items: center;
-  background: #0A192F;
-  color: #F8FAFC;
+  background: #0a192f;
+  color: #f8fafc;
 }
 
-/* Full-section background video */
+/* Background video — visible behind the content */
 .video-showcase .video-background {
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  display: block;
+  border: 0;
   pointer-events: none;
-  background: #0A192F;
+  background: #0a192f;
 }
 
-/* Completely remove video overlay */
+/* No visible overlay */
 .video-showcase .video-background-overlay {
   display: none !important;
-  background: transparent !important;
 }
 
-/* Content layout */
+/* Content sits above the video */
 .video-showcase .video-showcase-grid {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   display: flex;
   align-items: center;
@@ -48,46 +49,22 @@
   gap: 35px;
 }
 
-/* Transparent content — no overlay or background box */
+/* Transparent content */
 .video-showcase .video-showcase-content {
   position: relative;
-  isolation: auto;
   width: calc(100% - 40px);
   max-width: 1000px;
   margin-inline: auto;
   padding: 0;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   background: transparent;
-  border: none;
+  border: 0;
   border-radius: 0;
   box-shadow: none;
   animation: vsContentReveal 0.85s ease-out both;
-}
-
-/* Remove content overlay */
-.video-showcase .video-showcase-content::before {
-  content: none !important;
-  display: none !important;
-}
-
-/* Reusable overlay classes for OTHER sections */
-.section-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: rgba(10, 25, 47, 0.45);
-  pointer-events: none;
-}
-
-.section-overlay--dark {
-  background: rgba(10, 25, 47, 0.60);
-}
-
-.section-overlay--light {
-  background: rgba(10, 25, 47, 0.25);
 }
 
 /* Eyebrow */
@@ -97,11 +74,11 @@
   justify-content: center;
   gap: 10px;
   margin-bottom: 20px;
-  color: #38BDF8;
+  color: #38bdf8;
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.15em;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
 
 .video-showcase .eyebrow-dot {
@@ -109,42 +86,44 @@
   height: 9px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #38BDF8;
+  background: #38bdf8;
   box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.14);
   animation: vsDotPulse 2.2s ease-in-out infinite;
 }
 
-/* Main heading */
+/* Heading */
 .video-showcase .video-heading {
   max-width: 850px;
   margin: 0 auto 20px;
-  color: #F8FAFC;
+  color: #f8fafc;
   font-size: clamp(2rem, 4vw, 3.4rem);
   line-height: 1.12;
   letter-spacing: -0.04em;
   font-weight: 850;
   text-align: center;
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.42);
+  text-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.85),
+    0 0 18px rgba(0, 0, 0, 0.25);
 }
 
 .video-showcase .video-heading span {
   display: inline;
   margin-left: 9px;
-  color: #38BDF8;
+  color: #38bdf8;
 }
 
 /* Description */
 .video-showcase .video-description {
   max-width: 760px;
   margin: 0 auto 25px;
-  color: #E2E8F0;
+  color: #f1f5f9;
   font-size: 0.98rem;
   line-height: 1.85;
   text-align: center;
-  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 2px 7px rgba(0, 0, 0, 0.9);
 }
 
-/* Horizontal feature list */
+/* Feature list */
 .video-showcase .video-feature-list {
   width: 100%;
   display: flex;
@@ -160,13 +139,13 @@
 .video-showcase .video-feature-list li {
   position: relative;
   padding-left: 27px;
-  color: #F8FAFC;
+  color: #f8fafc;
   font-size: 0.88rem;
   font-weight: 600;
   line-height: 1.6;
   text-align: left;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-  transition: color 0.3s ease;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95);
+  transition: color 0.25s ease;
 }
 
 .video-showcase .video-feature-list li::before {
@@ -179,14 +158,14 @@
   height: 19px;
   place-items: center;
   border-radius: 50%;
-  background: rgba(56, 189, 248, 0.15);
-  color: #38BDF8;
+  background: rgba(10, 25, 47, 0.7);
+  color: #38bdf8;
   font-size: 0.72rem;
   font-weight: 900;
 }
 
 .video-showcase .video-feature-list li:hover {
-  color: #38BDF8;
+  color: #38bdf8;
 }
 
 /* Bottom note */
@@ -196,20 +175,21 @@
   justify-content: center;
   gap: 12px;
   margin-top: 30px;
-  color: #E2E8F0;
+  color: #f1f5f9;
   font-size: 0.67rem;
   font-weight: 800;
   letter-spacing: 0.14em;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 .video-showcase .video-note-line {
   width: 36px;
   height: 2px;
-  background: #38BDF8;
+  flex-shrink: 0;
+  background: #38bdf8;
 }
 
-/* Hide old visual-frame elements */
+/* Hide unused visual-frame elements */
 .video-showcase .video-showcase-visual,
 .video-showcase .video-index,
 .video-showcase .video-frame,
@@ -231,8 +211,9 @@
 }
 
 @keyframes vsDotPulse {
-  0%, 100% {
-    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.10);
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
   }
 
   50% {
@@ -245,6 +226,10 @@
   .video-showcase {
     min-height: 520px;
     padding: 75px 0;
+  }
+
+  .video-showcase .video-background {
+    object-position: center;
   }
 
   .video-showcase .video-showcase-grid {
@@ -279,9 +264,6 @@
   .video-showcase .video-showcase-content {
     width: calc(100% - 28px);
     padding: 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
   }
 
   .video-showcase .video-eyebrow {
@@ -297,8 +279,7 @@
 
   .video-showcase .video-heading span {
     display: block;
-    margin-left: 0;
-    margin-top: 4px;
+    margin: 4px 0 0;
   }
 
   .video-showcase .video-description {
@@ -326,7 +307,7 @@
   }
 }
 
-/* Reduced motion accessibility */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .video-showcase .video-showcase-content,
   .video-showcase .eyebrow-dot {
