@@ -4,6 +4,8 @@ import Brand from '../Brand/Brand'
 import './Footer.css'
 
 export default function Footer() {
+  const base = import.meta.env.BASE_URL
+
   return (
     <footer className="ft">
       <div className="container fg">
@@ -19,9 +21,20 @@ export default function Footer() {
           </p>
 
           <div className="soc">
-            {['in', 'f', 'x', '▶'].map((s) => (
-              <a key={s} href="#" aria-label={`Social media ${s}`}>
-                {s}
+            {[
+              { label: 'LinkedIn', text: 'in', href: 'https://www.linkedin.com/' },
+              { label: 'Facebook', text: 'f', href: 'https://www.facebook.com/' },
+              { label: 'X', text: 'x', href: 'https://x.com/' },
+              { label: 'YouTube', text: '▶', href: 'https://www.youtube.com/' },
+            ].map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+              >
+                {s.text}
               </a>
             ))}
           </div>
@@ -48,15 +61,22 @@ export default function Footer() {
         {/* Contact */}
         <div className="footer-column footer-contact">
           <h4>Get in Touch</h4>
+
           <p>📍 [Street Address / Suite #, City, Country]</p>
-          <p>📞 +61 452 456 745</p>
-          <p>☎ +1 (800) CRAMER-HQ</p>
+          <p>
+            📞 <a href="tel:+61452456745">+61 452 456 745</a>
+          </p>
+          <p>
+            ☎ <a href="tel:1800272637">+1 (800) CRAMER-HQ</a>
+          </p>
+
           <p>
             ✉{' '}
             <a href="mailto:info@cramergroup.com">
               info@cramergroup.com
             </a>
           </p>
+
           <p>
             ✉{' '}
             <a href="mailto:careers@cramergroup.com">
@@ -64,7 +84,6 @@ export default function Footer() {
             </a>
           </p>
         </div>
-
       </div>
 
       {/* Copyright */}

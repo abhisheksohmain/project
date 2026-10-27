@@ -1,18 +1,18 @@
 
-import { Link } from 'react-router-dom';
-
-import Media from '../Media/Media';
-import { IMG } from '../../data/media';
-
-import './Hero.css';
+import { Link } from 'react-router-dom'
+import Media from '../Media/Media'
+import { IMG } from '../../data/media'
+import './Hero.css'
 
 export default function Hero() {
+  const videoSrc = `${import.meta.env.BASE_URL}videos/hero_videos.mp4`
+
   return (
     <section className="hero">
       {/* Background Video */}
       <Media
         video
-        src="/videos/hero_videos.mp4"
+        src={videoSrc}
         poster={IMG.hero}
         className="hbg"
       />
@@ -46,10 +46,7 @@ export default function Hero() {
             Request a Project Consultation →
           </Link>
 
-          <a
-            href="tel:1800CRAMER"
-            className="btn btn-ghost"
-          >
+          <a href="tel:1800CRAMER" className="btn btn-ghost">
             24/7 HVAC Emergency Service Line →
           </a>
         </div>
@@ -60,5 +57,5 @@ export default function Hero() {
         <span />
       </div>
     </section>
-  );
+  )
 }
