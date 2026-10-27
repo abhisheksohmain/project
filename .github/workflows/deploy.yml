@@ -41,12 +41,12 @@ jobs:
 
       - name: Build website
         run: npm run build
-
-      - name: Verify build output
-        run: |
-          test -f dist/index.html
-          test -f dist/assets/index-Ce70tPlg.js || ls -la dist/assets
-          grep -Eo 'src="[^"]+\.js"|href="[^"]+\.css"' dist/index.html
+- name: Verify build output
+  run: |
+    test -f dist/index.html
+    test -n "$(find dist/assets -maxdepth 1 -name '*.js' -print -quit)"
+    test -n "$(find dist/assets -maxdepth 1 -name '*.css' -print -quit)"
+    grep -Eo '(src|href)="[^"]+"' dist/index.html
 
       - name: Support React Router refresh
         run: cp dist/index.html dist/404.html
