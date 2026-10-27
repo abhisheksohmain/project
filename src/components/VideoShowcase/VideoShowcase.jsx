@@ -2,18 +2,16 @@
 import { useRef } from 'react'
 import './VideoShowcase.css'
 
-const SHOWREEL = '/videos/cramer-showreel.mp4'
-
 export default function VideoShowcase() {
   const videoRef = useRef(null)
 
+  const SHOWREEL = `${import.meta.env.BASE_URL}videos/cramer-showreel.mp4`
+
   return (
     <section className="section video-showcase video-showcase-bg">
-      {/* Full-section background video */}
       <video
         ref={videoRef}
         className="video-background"
-        src={SHOWREEL}
         autoPlay
         muted
         loop
@@ -21,12 +19,12 @@ export default function VideoShowcase() {
         preload="auto"
         aria-hidden="true"
         tabIndex={-1}
-      />
+      >
+        <source src={SHOWREEL} type="video/mp4" />
+      </video>
 
-      {/* Navy overlay for readability */}
       <div className="video-background-overlay" />
 
-      {/* Centered horizontal content */}
       <div className="container video-showcase-grid">
         <div className="video-showcase-content">
           <span className="eyebrow video-eyebrow">
