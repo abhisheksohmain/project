@@ -32,13 +32,21 @@ jobs:
           node-version: 22
           cache: npm
 
+<<<<<<< HEAD
       - name: Install dependencies
         run: npm ci
+=======
+      - name: Clean install dependencies
+        run: |
+          rm -rf node_modules
+          npm ci
+>>>>>>> a2eba5f7b5fe0312356a15cb9edb1c365128580f
 
       - name: Build website
         run: npm run build
 
       - name: Verify build output
+<<<<<<< HEAD
         shell: bash
         run: |
           set -e
@@ -60,6 +68,13 @@ jobs:
 
           echo "Generated assets:"
           ls -lah dist/assets
+=======
+        run: |
+          test -f dist/index.html
+          test -n "$(find dist/assets -maxdepth 1 -name '*.js' -print -quit)"
+          test -n "$(find dist/assets -maxdepth 1 -name '*.css' -print -quit)"
+          grep -Eo '(src|href)="[^"]+"' dist/index.html
+>>>>>>> a2eba5f7b5fe0312356a15cb9edb1c365128580f
 
       - name: Support React Router refresh
         run: cp dist/index.html dist/404.html
