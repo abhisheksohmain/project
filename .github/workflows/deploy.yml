@@ -1,4 +1,3 @@
-
 name: Deploy Cramer Group to GitHub Pages
 
 on:
@@ -33,20 +32,34 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Clean install dependencies
-        run: |
-          rm -rf node_modules
-          npm ci
-          chmod +x node_modules/.bin/vite
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build website
         run: npm run build
-- name: Verify build output
-  run: |
-    test -f dist/index.html
-    test -n "$(find dist/assets -maxdepth 1 -name '*.js' -print -quit)"
-    test -n "$(find dist/assets -maxdepth 1 -name '*.css' -print -quit)"
-    grep -Eo '(src|href)="[^"]+"' dist/index.html
+
+      - name: Verify build output
+        shell: bash
+        run: |
+          set -e
+
+          echo "Checking production build..."
+
+          test -f dist/index.html
+
+          test -n "$(find dist/assets -maxdepth 1 -type f -name '*.js' -print -quit)"
+          test -n "$(find dist/assets -maxdepth 1 -type f -name '*.css' -print -quit)"
+
+          if grep -q '/src/main.jsx' dist/index.html; then
+            echo "ERROR: Source entry found in production HTML."
+            exit 1
+          fi
+
+          echo "Generated asset references:"
+          grep -Eo '(src|href)="[^"]+"' dist/index.html
+
+          echo "Generated assets:"
+          ls -lah dist/assets
 
       - name: Support React Router refresh
         run: cp dist/index.html dist/404.html
