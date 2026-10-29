@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom'
 import Media from '../Media/Media'
 import { IMG } from '../../data/media'
@@ -28,9 +27,11 @@ export default function Hero() {
         </span>
 
         <h1>
-          Precision Engineering.{' '}
-          <em>Turnkey Project Delivery.</em>{' '}
-          Industry Mentorship.
+          <span className="line">Precision Engineering.</span>
+          <span className="line">
+            <em>Turnkey Project Delivery.</em>
+          </span>
+          <span className="line">Industry Mentorship.</span>
         </h1>
 
         <p>
@@ -53,9 +54,9 @@ export default function Hero() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="scroll">
+      {/* <div className="scroll">
         <span />
-      </div>
+      </div> */}
     </section>
   )
 }
